@@ -20,16 +20,17 @@ class Api extends Enviroment {
 
     if (token.length > 1) {
       headers = <String, String>{
-        HttpHeaders.authorizationHeader: 'Bearer ' + token,
-        "Accept": "aplication/json"
+        HttpHeaders.authorizationHeader: 'Bearer $token',
+        "Accept": "application/json"
       };
     } else{
       headers = <String, String>{
-        "Accept": "aplication/json"
+        "Accept": "application/json"
       };
     }
 
     dynamic responseJson;
+
     try {
       final response = await http.get(baseUrl, headers: headers);
       responseJson = returnResponse(response);
@@ -44,24 +45,38 @@ class Api extends Enviroment {
     final token = await storage.read(key: 'token') ?? '';
     var headers = <String, String>{};
 
+    print("ENTRA ALBVBB");
+    print(baseUrl);
+
     if (token.length > 1) {
       headers = <String, String>{
-        HttpHeaders.authorizationHeader: 'Bearer ' + token,
-        "Accept": "aplication/json"
+        HttpHeaders.authorizationHeader: 'Bearer $token',
+        "Content-type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
       };
     } else{
       headers = <String, String>{
-        "Accept": "aplication/json"
+        "Content-type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
       };
     }
 
     dynamic responseJson;
     try {
+      print("ENTRA try");
+      print(body);
+
       final response = await http.post(baseUrl, headers: headers, body: body);
+      print("RESPONSE JSON 2222 => " + json.decode(response.body));
+
       responseJson = returnResponse(response);
     } on SocketException {
+      print("ENTRA catch");
+
       throw FetchDataException('No Internet Connection');
     }
+
+    print("RESPONSE JSON => " + responseJson);
     return responseJson;
   }
 

@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 
 class CustomColors {
-  Color ie_blue = const Color(0xff2D97B9);
-  Color ie_darkblue = const Color(0xff2D4162);
-  Color ie_orange = const Color(0xffFAB043);
-  Color ie_green = const Color(0xffC8DC53);
-  Color sky_blue = const Color(0xff1c89b1);
-  Color light_blue = const Color(0xff99ceda);
+  static const Color IE_BLUE = Color(0xff2D97B9);
+  static const Color IE_DARKBLUE = Color(0xff2D4162);
+  static const Color IE_ORANGE = Color(0xffFAB043);
+  static const Color IE_GREEN = Color(0xffC8DC53);
+  static const Color SKY_BLUE = Color(0xff1c89b1);
+  static const Color LIGHT_BLUE = Color(0xff99ceda);
+  static const Color WHITE = Color(0xffFFFFFF);
+  static const Color WHITEEAEAEA = Color(0xffEAEAEA);
 }

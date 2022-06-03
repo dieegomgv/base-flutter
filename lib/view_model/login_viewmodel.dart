@@ -1,6 +1,5 @@
 import 'package:base_flutter/network/response.dart';
 import 'package:base_flutter/repositories/login_repository.dart';
-import 'package:base_flutter/repositories/user_repository.dart';
 import 'package:flutter/material.dart';
 
 class LoginViewModel with ChangeNotifier{
@@ -10,14 +9,32 @@ class LoginViewModel with ChangeNotifier{
     return _response;
   }
 
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  String email    = '';
+  String password = '';
+
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
+
+  set isLoading ( bool value ) {
+    _isLoading = value;
+    notifyListeners();
+  }
+
+  bool isValidForm() {
+    return formKey.currentState?.validate() ?? false;
+  }
+
   Future<void> doLogin(String email, String password) async {
-    _response = Response.loading('Fetching artist data');
+    _response = Response.loading('Iniciando sesión');
     notifyListeners();
     try {
-      //List<User> userList = await UserRepository().fetchUserList(value);
-      final dynamic response = await LoginRepsitory().doLogin(email, password)
+      final dynamic response = await LoginRepsitory().doLogin(email, password);
+      print("ENTRA AL TRY");
       _response = Response.completed(response.user);
     } catch (e) {
+      print("ENTRA AL CATCH");
       _response = Response.error(e.toString());
       print(e);
     }

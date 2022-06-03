@@ -23,6 +23,10 @@ dependencies:
   objectbox: ^1.5.0
   objectbox_flutter_libs: any
 
+  hive: any
+  hive_flutter: any
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -31,28 +35,10 @@ dev_dependencies:
   objectbox_generator: any
 
   flutter_lints: ^2.0.0
+  hive_generator: any
 
 
 flutter:
-
-  uses-material-design: true
-
   assets:
-    - assets/
-      - logo_iesoluciones.png
-
-  fonts:
-      - family: GrapeNuts
-        fonts:
-          - asset: fonts/GrapeNuts-Regular.ttf
-      #       - asset: fonts/Schyler-Italic.ttf
-      #         style: italic
-      - family: OpenSans
-        fonts:
-          - asset: fonts/OpenSans-Italic-VariableFont_wdth,wght.ttf
-          - asset: fonts/OpenSans-VariableFont_wdth,wght.ttf
-
-      - family: BebasNeue
-        fonts:
-          - asset: fonts/BebasNeue-Regular.ttf
-    #         weight: 700
+    - assets/logo_iesoluciones.png
+  uses-material-design: true

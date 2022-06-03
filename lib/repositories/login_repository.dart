@@ -8,7 +8,7 @@ class LoginRepsitory {
 
   Future<dynamic> doLogin(String email, String password) async {
 
-    final String urlLogin = 'login';
+    const String urlLogin = 'login';
     final Map<String, dynamic> authData = {
       'email': email,
       'password': password
@@ -16,6 +16,7 @@ class LoginRepsitory {
 
     dynamic response = await enviroment.postResponse(urlLogin, authData);
 
+    print("RESPONSE");
     print(jsonDecode(response));
 
     return response;

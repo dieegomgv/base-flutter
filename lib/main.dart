@@ -1,10 +1,10 @@
 import 'package:base_flutter/helper_util.dart';
-import 'package:base_flutter/providers/login_provider.dart';
 import 'package:base_flutter/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:provider/provider.dart';
+import 'view_model/login_viewmodel.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +17,7 @@ void main() async {
   runApp(
       MultiProvider(
         providers: [
-          ChangeNotifierProvider(create: ( _ ) => LoginFormProvider()),
+          ChangeNotifierProvider(create: ( _ ) => LoginViewModel()),
         ],
         child: const MyApp(),
       )
